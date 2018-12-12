@@ -2,7 +2,19 @@
   <div class="logo">Cake shop</div>
   <div class="list-container">
     <div class="item">
-      Item
+      <div class="image">IMAGE</div>
+      <div class="data">
+        <div class="top">
+          <div class="name">{{ item.name }}</div>
+          <div class="edit-icon">E</div>
+          <div class="remove-icon">R</div>
+        </div>
+        <div class="middle">{{ item.desc }}</div>
+        <div class="bottom">
+          <div class="number_of_portions">Liczba porcji: {{ item.number_of_portions }}</div>
+          <div class="cost">Cena ciasta: {{ item.price }}</div>
+        </div>
+      </div>
     </div>
     <div class="item">
       Item
