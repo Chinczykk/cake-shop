@@ -31,8 +31,9 @@
       </div>
     </div>
   </div>
-  <button class="add-button">
+  <button class="add-button" (click)="openModal()">
     <div class="add-icon">+</div>
     DODAJ CIASTO
   </button>
 </div>
+<app-modal *ngIf="modal" (close)="closeModal()"></app-modal>

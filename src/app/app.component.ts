@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  public modal = false;
+
   public items = [
     {
       name: 'Ciasto truskawkowe',
@@ -24,5 +26,13 @@ export class AppComponent {
   ];
 
   constructor() {}
+
+  public closeModal() {
+    this.modal = false;
+  }
+
+  public openModal() {
+    this.modal = true;
+  }
 
 }
