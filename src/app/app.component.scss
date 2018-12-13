@@ -43,6 +43,13 @@
         width: 160px;
         height: 160px;
         /* border: 1px solid red; */
+        padding: 0 20px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+        }
       }
 
       .data {
@@ -69,6 +76,7 @@
 
           .edit-icon {
             width: 7%;
+            cursor: pointer;
           }
 
           .remove-icon {
@@ -76,6 +84,7 @@
             transform: rotate(45deg);
             transform-origin: top middle;
             margin-top: 2px;
+            cursor: pointer;
           }
         }
 
@@ -96,6 +105,7 @@
             width: 50%;
             display: flex;
             flex-direction: row;
+            align-items: center;
 
             .text {
               font-size: 12px;
@@ -114,6 +124,7 @@
             width: 50%;
             display: flex;
             flex-direction: row;
+            align-items: center;
 
             .text {
               font-size: 12px;

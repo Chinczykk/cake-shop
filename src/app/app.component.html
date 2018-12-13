@@ -2,8 +2,10 @@
   <img class="logo" src="../assets/CakeShop.svg" alt="Cake shop">
   <hr>
   <div class="list-container">
-    <div class="item">
-      <div class="image">IMAGE</div>
+    <div *ngFor="let item of items" class="item">
+      <div class="image">
+        <img src="{{ item.image }}">
+      </div>
       <div class="data">
         <div class="top">
           <div class="name">{{ item.name }}</div>
@@ -27,18 +29,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="item">
-      Item
-    </div>
-    <div class="item">
-      Item
-    </div>
-    <div class="item">
-      Item
-    </div>
-    <div class="item">
-      Item
     </div>
   </div>
   <button class="add-button">
