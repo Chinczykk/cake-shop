@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
+import { Component, Output, EventEmitter, ViewChild, ElementRef, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FakeBackendService } from '../../fake-backend/fake-backend.service';
 
@@ -7,17 +7,18 @@ import { FakeBackendService } from '../../fake-backend/fake-backend.service';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss']
 })
-export class ModalComponent {
+export class ModalComponent implements OnInit {
 
-  public uploadedImage = '';
-  public costPerPortion = 0;
+  public uploadedImage: String = '';
+  public costPerPortion: Number = 0;
 
   @Output() close: EventEmitter<any> = new EventEmitter();
+  @Input() item;
 
   public cakeForm = new FormGroup({
-    image: new FormControl('', [
+    image: new FormControl('', (this.item) ? (this.item.id) ? [
       Validators.required
-    ]),
+    ] : [] : []),
     name: new FormControl('', [
       Validators.required
     ]),
@@ -34,6 +35,18 @@ export class ModalComponent {
 
   public closeModal() {
     this.close.emit();
+  }
+
+  public ngOnInit() {
+    if (this.item.id) {
+      const form = this.cakeForm.controls;
+      this.uploadedImage = this.item.image;
+      form['name'].setValue(this.item.name);
+      form['desc'].setValue(this.item.desc);
+      form['numberOfPortions'].setValue(this.item.numberOfPortions);
+      form['cost'].setValue(this.item.cost);
+      this.countPortionCost();
+    }
   }
 
   public adjustHeight(el) {
@@ -73,27 +86,38 @@ export class ModalComponent {
     }
   }
 
-  public countPortionCost(el) {
-    if (this.cakeForm.controls['numberOfPortions'].value) {
+  public countPortionCost() {
+    if (this.cakeForm.controls['numberOfPortions'].value && this.cakeForm.controls['cost'].value > 0) {
       this.costPerPortion = Math.round(this.cakeForm.controls['cost'].value / this.cakeForm.controls['numberOfPortions'].value);
     }
   }
 
   public save() {
     if (this.cakeForm.valid) {
+      const id = Date.now();
       const image = this.uploadedImage;
       const name = this.cakeForm.controls['name'].value;
       const desc = this.cakeForm.controls['desc'].value;
       const cost = this.cakeForm.controls['cost'].value;
       const numberOfPortions = this.cakeForm.controls['numberOfPortions'].value;
       const obj = {
+        id,
         image,
         name,
         desc,
         cost,
         numberOfPortions
       };
-      this.fakeBackend.add('cakes_list', obj);
+      if (this.item) {
+        if (this.item.id) {
+          obj.id = this.item.id;
+          this.fakeBackend.updateItemWithId('cakes_list', this.item.id, obj);
+        } else {
+          this.fakeBackend.add('cakes_list', obj);
+        }
+      } else {
+        this.fakeBackend.add('cakes_list', obj);
+      }
       this.closeModal();
     }
   }

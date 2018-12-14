@@ -22,4 +22,22 @@ export class FakeBackendService {
     delete this.data[key];
   }
 
+  public removeItemWithId(key, id) {
+    for (let i = 0; i < this.data[key].length; i++) {
+      if (this.data[key][i].id === id) {
+        this.data[key].splice(i, 1);
+        return;
+      }
+    }
+  }
+
+  public updateItemWithId(key, id, data) {
+    for (let i = 0; i < this.data[key].length; i++) {
+      if (this.data[key][i].id === id) {
+        this.data[key][i] = data;
+        return;
+      }
+    }
+  }
+
 }

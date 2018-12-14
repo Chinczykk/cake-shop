@@ -8,11 +8,12 @@ import { FakeBackendService } from './fake-backend/fake-backend.service';
 })
 export class AppComponent {
 
-  public modal = false;
-  public items = [];
+  public modal: Boolean = false;
+  public items: any = [];
+  public itemToEdit: Object = {};
 
   constructor(public fakeBackend: FakeBackendService) {
-    this.items = fakeBackend.get('cakes_list');
+    this.updateItems();
   }
 
   public closeModal() {
@@ -20,7 +21,22 @@ export class AppComponent {
   }
 
   public openModal() {
+    this.itemToEdit = {};
     this.modal = true;
+  }
+
+  public updateItems() {
+    this.items = this.fakeBackend.get('cakes_list');
+  }
+
+  public edit(item) {
+    this.itemToEdit = item;
+    this.modal = true;
+  }
+
+  public remove(item) {
+    this.fakeBackend.removeItemWithId('cakes_list', item.id);
+    this.updateItems();
   }
 
 }

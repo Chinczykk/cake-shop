@@ -11,10 +11,10 @@
           <div class="top">
             <div class="name">{{ (item.name.length > 30) ? (item.name | slice:0:30) + '...' : item.name }}</div>
             <div class="edit-icon">
-              <img src="../assets/edit-icon.svg">
+              <img src="../assets/edit-icon.svg" (click)="edit(item)">
             </div>
             <div class="remove-icon">
-              <img src="../assets/remove.svg">
+              <img src="../assets/remove.svg" (click)="remove(item)">
             </div>
           </div>
           <div class="middle">{{ (item.desc.length > 110) ? (item.desc | slice:0:110) + '...' : item.desc }}</div>
@@ -46,4 +46,4 @@
     DODAJ CIASTO
   </button>
 </div>
-<app-modal *ngIf="modal" (close)="closeModal()"></app-modal>
+<app-modal *ngIf="modal" [item]="itemToEdit" (close)="closeModal()"></app-modal>
