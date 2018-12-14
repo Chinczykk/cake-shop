@@ -47,3 +47,4 @@
   </button>
 </div>
 <app-modal *ngIf="modal" [item]="itemToEdit" (close)="closeModal()"></app-modal>
+<app-toastr *ngIf="toastr" [value]="toastrValue" (remove)="removeToastr()"></app-toastr>

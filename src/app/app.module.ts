@@ -4,12 +4,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { ToastrComponent } from './components/toastr/toastr.component';
 import { FakeBackendService } from './fake-backend/fake-backend.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ModalComponent,
+    ToastrComponent
   ],
   imports: [
     BrowserModule,

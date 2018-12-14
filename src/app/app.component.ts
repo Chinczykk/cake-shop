@@ -8,9 +8,17 @@ import { FakeBackendService } from './fake-backend/fake-backend.service';
 })
 export class AppComponent {
 
+  private messages = {
+    'add': 'DODAŁEŚ NOWE CIASTO!',
+    'remove': 'USUNĄŁEŚ CIASTO!',
+    'edit': 'ZMIENIŁEŚ CIASTO!',
+  };
+
   public modal: Boolean = false;
   public items: any = [];
   public itemToEdit: Object = {};
+  public toastr: Boolean = false;
+  public toastrValue: String = '';
 
   constructor(public fakeBackend: FakeBackendService) {
     this.updateItems();
@@ -37,6 +45,17 @@ export class AppComponent {
   public remove(item) {
     this.fakeBackend.removeItemWithId('cakes_list', item.id);
     this.updateItems();
+    this.activateToastr(this.messages.remove);
+  }
+
+  public activateToastr(message) {
+    this.toastrValue = message;
+    this.toastr = true;
+  }
+
+  public removeToastr() {
+    this.toastr = false;
+    this.toastrValue = '';
   }
 
 }

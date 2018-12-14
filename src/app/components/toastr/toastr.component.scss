@@ -1,0 +1,28 @@
+.toastr {
+  position: absolute;
+  top: 200px;
+  right: 50px;
+  z-index: 3;
+  width: 350px;
+  height: 60px;
+  box-shadow: 0px 3px 30px rgba(103, 42, 42, 0.19);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  color: #FFA786;
+  border-radius: 5px;
+
+  img {
+    width: 20%;
+    height: 100%;
+  }
+
+  .value {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
