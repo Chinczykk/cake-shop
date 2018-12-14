@@ -3,10 +3,10 @@
   <div class="darker-background"></div>
   <form [formGroup]="cakeForm">
     <!-- Two inputs type file becouse one is covering image and second is convering + -->
-    <img src="../../../assets/add-cake.svg">
-    <input class="file-img" type="file" formControlName="image">
+    <img [src]="getImage()">
+    <input #fileImg class="file-img" type="file" formControlName="image" (change)="uploadImage(fileImg)">
     <div class="plus-icon">+</div>
-    <input class="file-plus" type="file" formControlName="image">
+    <input #filePlus class="file-plus" type="file" formControlName="image" (change)="uploadImage(filePlus)">
     <input type="text" formControlName="name" placeholder="Nazwa ciasta" [maxLength]="100">
     <div class="desc">
       <textarea #desc formControlName="desc" placeholder="Opis ciasta" [maxLength]="250" (input)="adjustHeight(desc)"></textarea>
@@ -15,11 +15,11 @@
     <label id="portions">
       <label class="text">LICZBA PORCJI</label>
       <div class="values">
-        <input id="4" type="radio" formControlName="numberOfPortions" value="4">
+        <input id="4" type="radio" formControlName="numberOfPortions" value="4" (change)="countPortionCost()">
         <label for="4">4</label>
-        <input id="8" type="radio" formControlName="numberOfPortions" value="8">
+        <input id="8" type="radio" formControlName="numberOfPortions" value="8" (change)="countPortionCost()">
         <label for="8">8</label>
-        <input id="12" type="radio" formControlName="numberOfPortions" value="12">
+        <input id="12" type="radio" formControlName="numberOfPortions" value="12" (change)="countPortionCost()">
         <label for="12">12</label>
       </div>
     </label>
@@ -27,17 +27,20 @@
       <label id="cost">
         <div class="text">CENA CIASTA</div>
         <div class="data">
-          <input #cost type="number" formControlName="cost" placeholder="0">
+          <input #cost type="number" formControlName="cost" placeholder="0" (keyup)="countPortionCost()">
           <div [style.color]="getStyle(cost)" class="currency-type">PLN</div>
         </div>
       </label>
       <label id="cost-per-portion">
         <div class="text">CENA PORCJI</div>
         <div class="data">
-          <div class="value">10&nbsp;</div>
+          <div class="value">{{ costPerPortion }}&nbsp;</div>
           <div class="currency-type">PLN</div>
         </div>
       </label>
     </div>
+    <button class="save-button">
+      ZAPISZ
+    </button>
   </form>
 </div>

@@ -8,6 +8,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ModalComponent {
 
+  public uploadedImage = '';
+  public costPerPortion = 0;
+
   @Output() close: EventEmitter<any> = new EventEmitter();
 
   public cakeForm = new FormGroup({
@@ -43,6 +46,35 @@ export class ModalComponent {
       return '#C4C4C4';
     } else {
       return '#FFA786';
+    }
+  }
+
+  public uploadImage(el) {
+    const file = el.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.readAsDataURL(file);
+      reader.onload = this.handleReaderLoaded.bind(this);
+    }
+  }
+
+  public handleReaderLoaded(e) {
+    this.uploadedImage = e.target.result;
+  }
+
+  public getImage() {
+    if (this.uploadedImage === '') {
+      return '../../../assets/add-cake.svg';
+    } else {
+      return this.uploadedImage;
+    }
+  }
+
+  public countPortionCost(el) {
+    if (this.cakeForm.controls['numberOfPortions'].value) {
+      this.costPerPortion = Math.round(this.cakeForm.controls['cost'].value / this.cakeForm.controls['numberOfPortions'].value);
     }
   }
 

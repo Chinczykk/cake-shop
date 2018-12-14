@@ -191,7 +191,7 @@
           input[type=number] {
             caret-color: #FFA786;
             color: #FFA786;
-            width: 30px;
+            width: 35px;
             border: none;
             outline: none;
             text-align: center;
@@ -245,6 +245,24 @@
 
       }
 
+    }
+
+    .save-button {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      bottom: 30px;
+      border-radius: 25px;
+      width: 190px;
+      height: 45px;
+      outline: none;
+      color: white;
+      background: linear-gradient(to right,#FFDE86, #FF5A1C);
+      border: none;
+      border-style: none;
+      cursor: pointer;
     }
   }
 }
