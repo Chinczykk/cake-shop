@@ -15,10 +15,6 @@
     align-items: center;
     padding: 50px 0;
 
-    label {
-      padding: 30px 0;
-    }
-
     img {
       width: 180px;
       height: 180px;
@@ -109,10 +105,56 @@
         font-size: 16px;
       }
 
-      input[formControlName=desc]:focus {
+      textarea[formControlName=desc]:focus {
         border-bottom: 1px solid #FFA789;
       }
 
+      .numberOfCharacters {
+        color: #C4C4C4;
+        font-size: 12px;
+        text-align: right;
+      }
+
+    }
+
+    #portions {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      width: 200px;
+      align-items: center;
+
+      .text {
+        font-size: 12px;
+        color: #C4C4C4;
+      }
+
+      .values {
+        width: 100px;
+        display: flex;
+        flex-direction: row;
+        margin-top: 5px;
+        margin-left: -25px;
+
+        input[type=radio] {
+          appearance: none;
+        }
+
+        label {
+          min-width: 32px;
+          height: 32px;
+          border: 0.7px solid #C4C4C4;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        input[type=radio]:checked + label {
+          color: #FFA789;
+          border-color: #FFA789;
+        }
+      }
     }
   }
 }

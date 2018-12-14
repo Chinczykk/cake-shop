@@ -12,9 +12,16 @@
       <textarea #desc formControlName="desc" placeholder="Opis ciasta" [maxLength]="250" (input)="adjustHeight(desc)"></textarea>
       <div class="numberOfCharacters">{{ desc.value.length }}/{{ desc.maxLength }}</div>
     </div>
-    <label>
-      LICZBA PORCJI
-      <input type="radio" formControlName="numberOfPortions">
+    <label id="portions">
+      <label class="text">LICZBA PORCJI</label>
+      <div class="values">
+        <input id="4" type="radio" formControlName="numberOfPortions" value="4">
+        <label for="4">4</label>
+        <input id="8" type="radio" formControlName="numberOfPortions" value="8">
+        <label for="8">8</label>
+        <input id="12" type="radio" formControlName="numberOfPortions" value="12">
+        <label for="12">12</label>
+      </div>
     </label>
     <label>
       CENA CIASTA
