@@ -148,6 +148,7 @@
           display: flex;
           align-items: center;
           justify-content: center;
+          cursor: pointer;
         }
 
         input[type=radio]:checked + label {
@@ -155,6 +156,76 @@
           border-color: #FFA786;
         }
       }
+    }
+
+    .cost-container {
+      display: flex;
+      flex-direction: row;
+      margin-top: 60px;
+
+      label[id=cost] {
+        padding: 0 30px;
+
+        .text {
+          font-size: 12px;
+          color: #C4C4C4;
+        }
+
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+          appearance: none;
+        }
+
+        input[type=number] {
+          caret-color: #FFA786;
+          color: #FFA786;
+          width: 75px;
+          border: none;
+          outline: none;
+          text-align: center;
+          margin-top: 10px;
+          font-weight: bold;
+          font-size: 16px;
+        }::placeholder {
+          font-weight: bold;
+          color: #C4C4C4;
+          font-size: 16px;
+        }
+
+        input[type=number]:focus {
+          border-bottom: 1px solid #FFA786;
+        }
+
+      }
+
+      label[id=cost-per-portion] {
+
+        .text {
+          font-size: 12px;
+          color: #C4C4C4;
+        }
+
+        .data {
+          display: flex;
+          flex-direction: row;
+          font-weight: bold;
+          justify-content: center;
+          color: #818181;
+
+          .value {
+            font-size: 16px;
+            margin-top: 10px;
+          }
+
+          .currency-type {
+            font-size: 12px;
+            margin-top: 13px;
+          }
+
+        }
+
+      }
+
     }
   }
 }

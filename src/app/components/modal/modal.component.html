@@ -23,13 +23,18 @@
         <label for="12">12</label>
       </div>
     </label>
-    <label>
-      CENA CIASTA
-      <input type="text" formControlName="cost">
-    </label>
-    <label>
-      CENA PORCJI
-      <div>SHOW CENA</div>
-    </label>
+    <div class="cost-container">
+      <label id="cost">
+        <div class="text">CENA CIASTA</div>
+        <input type="number" formControlName="cost" placeholder="0 PLN">
+      </label>
+      <label id="cost-per-portion">
+        <div class="text">CENA PORCJI</div>
+        <div class="data">
+          <div class="value">10&nbsp;</div>
+          <div class="currency-type">PLN</div>
+        </div>
+      </label>
+    </div>
   </form>
 </div>
