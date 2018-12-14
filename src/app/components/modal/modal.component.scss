@@ -26,7 +26,7 @@
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      background-color: #FFA789;
+      background-color: #FFA786;
       box-shadow: #A85B4D 0px 3px 15px;
       color: white;
       font-size: 30px;
@@ -74,8 +74,8 @@
       height: 40px;
       text-align: center;
       margin-top: 35px;
-      caret-color: #FFA789;
-      color: #FFA789;
+      caret-color: #FFA786;
+      color: #FFA786;
       font-weight: bold;
       font-size: 20px;
     }::placeholder {
@@ -84,7 +84,7 @@
     }
 
     input[formControlName=name]:focus {
-      border-bottom: 1px solid #FFA789;
+      border-bottom: 1px solid #FFA786;
     }
 
     .desc {
@@ -96,8 +96,8 @@
         height: 30px;
         text-align: center;
         margin-top: 20px;
-        caret-color: #FFA789;
-        color: #FFA789;
+        caret-color: #FFA786;
+        color: #FFA786;
         resize: none;
       }::placeholder {
         color: #C4C4C4;
@@ -106,7 +106,7 @@
       }
 
       textarea[formControlName=desc]:focus {
-        border-bottom: 1px solid #FFA789;
+        border-bottom: 1px solid #FFA786;
       }
 
       .numberOfCharacters {
@@ -151,8 +151,8 @@
         }
 
         input[type=radio]:checked + label {
-          color: #FFA789;
-          border-color: #FFA789;
+          color: #FFA786;
+          border-color: #FFA786;
         }
       }
     }
