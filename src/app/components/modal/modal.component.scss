@@ -103,7 +103,7 @@
         text-align: center;
         margin-top: 20px;
         caret-color: #FFA786;
-        color: #FFA786;
+        color: #C4C4C4;
         resize: none;
       }::placeholder {
         color: #C4C4C4;
@@ -115,7 +115,12 @@
         border-bottom: 1px solid #FFA786;
       }
 
+      textarea[formControlName=desc]:focus + .numberOfCharacters {
+        visibility: visible;
+      }
+
       .numberOfCharacters {
+        visibility: hidden;
         color: #C4C4C4;
         font-size: 12px;
         text-align: right;
