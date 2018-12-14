@@ -1,4 +1,28 @@
 <div class="overlay" (click)="closeModal()"></div>
 <div class="modal-container">
-  x
+  <form [formGroup]="cakeForm">
+    <div class="darker-background"></div>
+    <!-- Two inputs type file becouse one is covering image and second is convering + -->
+    <img src="../../../assets/add-cake.svg">
+    <input class="file-img" type="file" formControlName="image">
+    <div class="plus-icon">+</div>
+    <input class="file-plus" type="file" formControlName="image">
+    <input type="text" formControlName="name" placeholder="Nazwa ciasta">
+    <div class="desc">
+      <input id="desc" type="text" formControlName="desc" placeholder="Opis ciasta">
+      <div class="numberOfCharacters"></div>
+    </div>
+    <label>
+      LICZBA PORCJI
+      <input type="radio" formControlName="numberOfPortions">
+    </label>
+    <label>
+      CENA CIASTA
+      <input type="text" formControlName="cost">
+    </label>
+    <label>
+      CENA PORCJI
+      <div>SHOW CENA</div>
+    </label>
+  </form>
 </div>
