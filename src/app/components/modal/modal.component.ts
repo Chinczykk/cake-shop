@@ -33,8 +33,8 @@ export class ModalComponent implements OnInit {
 
   constructor(public fakeBackend: FakeBackendService) {}
 
-  public closeModal() {
-    this.close.emit();
+  public closeModal(mode) {
+    this.close.emit(mode);
   }
 
   public ngOnInit() {
@@ -112,13 +112,15 @@ export class ModalComponent implements OnInit {
         if (this.item.id) {
           obj.id = this.item.id;
           this.fakeBackend.updateItemWithId('cakes_list', this.item.id, obj);
+          this.closeModal('edit');
         } else {
           this.fakeBackend.add('cakes_list', obj);
+          this.closeModal('add');
         }
       } else {
         this.fakeBackend.add('cakes_list', obj);
+        this.closeModal('add');
       }
-      this.closeModal();
     }
   }
 

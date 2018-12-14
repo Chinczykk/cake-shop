@@ -16,7 +16,7 @@ export class AppComponent {
 
   public modal: Boolean = false;
   public items: any = [];
-  public itemToEdit: Object = {};
+  public itemToEdit: any = {};
   public toastr: Boolean = false;
   public toastrValue: String = '';
 
@@ -24,13 +24,19 @@ export class AppComponent {
     this.updateItems();
   }
 
-  public closeModal() {
+  public closeModal(event) {
     this.modal = false;
+    if (event === 'edit') {
+      this.activateToastr(this.messages.edit);
+    } else if (event === 'add') {
+      this.activateToastr(this.messages.add);
+    }
   }
 
   public openModal() {
     this.itemToEdit = {};
     this.modal = true;
+    this.removeToastr();
   }
 
   public updateItems() {

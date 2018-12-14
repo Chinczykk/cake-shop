@@ -46,5 +46,5 @@
     DODAJ CIASTO
   </button>
 </div>
-<app-modal *ngIf="modal" [item]="itemToEdit" (close)="closeModal()"></app-modal>
+<app-modal *ngIf="modal" [item]="itemToEdit" (close)="closeModal($event)"></app-modal>
 <app-toastr *ngIf="toastr" [value]="toastrValue" (remove)="removeToastr()"></app-toastr>
