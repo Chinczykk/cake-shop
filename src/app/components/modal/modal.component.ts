@@ -38,4 +38,12 @@ export class ModalComponent {
     el.style.height = el.scrollHeight + 'px';
   }
 
+  public getStyle(el) {
+    if (el.value === '') {
+      return '#C4C4C4';
+    } else {
+      return '#FFA786';
+    }
+  }
+
 }

@@ -1,7 +1,7 @@
 <div class="overlay" (click)="closeModal()"></div>
 <div class="modal-container">
+  <div class="darker-background"></div>
   <form [formGroup]="cakeForm">
-    <div class="darker-background"></div>
     <!-- Two inputs type file becouse one is covering image and second is convering + -->
     <img src="../../../assets/add-cake.svg">
     <input class="file-img" type="file" formControlName="image">
@@ -26,7 +26,10 @@
     <div class="cost-container">
       <label id="cost">
         <div class="text">CENA CIASTA</div>
-        <input type="number" formControlName="cost" placeholder="0 PLN">
+        <div class="data">
+          <input #cost type="number" formControlName="cost" placeholder="0">
+          <div [style.color]="getStyle(cost)" class="currency-type">PLN</div>
+        </div>
       </label>
       <label id="cost-per-portion">
         <div class="text">CENA PORCJI</div>
