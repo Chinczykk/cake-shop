@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -15,12 +15,9 @@ export class ModalComponent {
       Validators.required
     ]),
     name: new FormControl('', [
-      Validators.required,
-      Validators.maxLength(100)
+      Validators.required
     ]),
-    desc: new FormControl('', [
-      Validators.maxLength(250)
-    ]),
+    desc: new FormControl(''),
     numberOfPortions: new FormControl('', [
       Validators.required
     ]),

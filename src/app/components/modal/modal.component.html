@@ -7,10 +7,10 @@
     <input class="file-img" type="file" formControlName="image">
     <div class="plus-icon">+</div>
     <input class="file-plus" type="file" formControlName="image">
-    <input type="text" formControlName="name" placeholder="Nazwa ciasta">
+    <input type="text" formControlName="name" placeholder="Nazwa ciasta" [maxLength]="100">
     <div class="desc">
-      <input id="desc" type="text" formControlName="desc" placeholder="Opis ciasta">
-      <div class="numberOfCharacters"></div>
+      <textarea #desc formControlName="desc" placeholder="Opis ciasta" [maxLength]="250"></textarea>
+      <div class="numberOfCharacters">{{ desc.value.length }}/{{ desc.maxLength }}</div>
     </div>
     <label>
       LICZBA PORCJI

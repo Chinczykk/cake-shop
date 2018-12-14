@@ -93,15 +93,16 @@
 
     .desc {
 
-      input[formControlName=desc] {
+      textarea[formControlName=desc] {
         border: 0;
         outline: none;
-        width: 276px;
+        width: 600px;
         height: 30px;
         text-align: center;
         margin-top: 20px;
         caret-color: #FFA789;
         color: #FFA789;
+        resize: none;
       }::placeholder {
         color: #C4C4C4;
         opacity: 0.6;
