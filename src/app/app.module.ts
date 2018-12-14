@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { FakeBackendService } from './fake-backend/fake-backend.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,9 @@ import { ModalComponent } from './components/modal/modal.component';
     BrowserModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    FakeBackendService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

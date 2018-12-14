@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FakeBackendService } from '../../fake-backend/fake-backend.service';
 
 @Component({
   selector: 'app-modal',
@@ -29,7 +30,7 @@ export class ModalComponent {
     ])
   });
 
-  constructor() {}
+  constructor(public fakeBackend: FakeBackendService) {}
 
   public closeModal() {
     this.close.emit();
@@ -75,6 +76,25 @@ export class ModalComponent {
   public countPortionCost(el) {
     if (this.cakeForm.controls['numberOfPortions'].value) {
       this.costPerPortion = Math.round(this.cakeForm.controls['cost'].value / this.cakeForm.controls['numberOfPortions'].value);
+    }
+  }
+
+  public save() {
+    if (this.cakeForm.valid) {
+      const image = this.uploadedImage;
+      const name = this.cakeForm.controls['name'].value;
+      const desc = this.cakeForm.controls['desc'].value;
+      const cost = this.cakeForm.controls['cost'].value;
+      const numberOfPortions = this.cakeForm.controls['numberOfPortions'].value;
+      const obj = {
+        image,
+        name,
+        desc,
+        cost,
+        numberOfPortions
+      };
+      this.fakeBackend.add('cakes_list', obj);
+      this.closeModal();
     }
   }
 
