@@ -32,4 +32,10 @@ export class ModalComponent {
     this.close.emit();
   }
 
+  public adjustHeight(el) {
+    el.style.overflow = 'hidden';
+    el.style.height = '0px';
+    el.style.height = el.scrollHeight + 'px';
+  }
+
 }

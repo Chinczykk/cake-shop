@@ -9,7 +9,7 @@
     <input class="file-plus" type="file" formControlName="image">
     <input type="text" formControlName="name" placeholder="Nazwa ciasta" [maxLength]="100">
     <div class="desc">
-      <textarea #desc formControlName="desc" placeholder="Opis ciasta" [maxLength]="250"></textarea>
+      <textarea #desc formControlName="desc" placeholder="Opis ciasta" [maxLength]="250" (input)="adjustHeight(desc)"></textarea>
       <div class="numberOfCharacters">{{ desc.value.length }}/{{ desc.maxLength }}</div>
     </div>
     <label>
