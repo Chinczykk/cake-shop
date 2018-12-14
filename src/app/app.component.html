@@ -2,32 +2,42 @@
   <img class="logo" src="../assets/CakeShop.svg" alt="Cake shop">
   <hr>
   <div class="list-container">
-    <div *ngFor="let item of items" class="item">
-      <div class="image">
-        <img src="{{ item.image }}">
+    <div *ngIf="items.length > 0">
+      <div *ngFor="let item of items" class="item">
+        <div class="image">
+          <img src="{{ item.image }}">
+        </div>
+        <div class="data">
+          <div class="top">
+            <div class="name">{{ (item.name.length > 30) ? (item.name | slice:0:30) + '...' : item.name }}</div>
+            <div class="edit-icon">
+              <img src="../assets/edit-icon.svg">
+            </div>
+            <div class="remove-icon">
+              <img src="../assets/remove.svg">
+            </div>
+          </div>
+          <div class="middle">{{ (item.desc.length > 110) ? (item.desc | slice:0:110) + '...' : item.desc }}</div>
+          <div class="bottom">
+            <div class="number_of_portions">
+              <div class="text">LICZBA PORCJI:&nbsp;&nbsp;</div>
+              <div class="value">{{ item.numberOfPortions }}</div>
+            </div>
+            <div class="cost">
+              <div class="text">CENA CIASTA:&nbsp;&nbsp;</div>
+              <div class="value">{{ item.cost }}</div>
+              <div class="currency">&nbsp;PLN</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="data">
-        <div class="top">
-          <div class="name">{{ item.name }}</div>
-          <div class="edit-icon">
-            <img src="../assets/edit-icon.svg">
-          </div>
-          <div class="remove-icon">
-            <img src="../assets/remove.svg">
-          </div>
-        </div>
-        <div class="middle">{{ item.desc }}</div>
-        <div class="bottom">
-          <div class="number_of_portions">
-            <div class="text">LICZBA PORCJI:&nbsp;&nbsp;</div>
-            <div class="value">{{ item.number_of_portions }}</div>
-          </div>
-          <div class="cost">
-            <div class="text">CENA CIASTA:&nbsp;&nbsp;</div>
-            <div class="value">{{ item.price }}</div>
-            <div class="currency">&nbsp;PLN</div>
-          </div>
-        </div>
+    </div>
+    <div class="no-items" *ngIf="items.length <= 0">
+      <div class="title">
+        Nie masz żadnych ciast na liście
+      </div>
+      <div class="desc">
+        Aby dodać pierwsze ciasto kliknij w poniższy przycisk:
       </div>
     </div>
   </div>

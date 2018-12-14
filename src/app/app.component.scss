@@ -94,6 +94,7 @@
           width: 100%;
           color: #C4C4C4;
           font-size: 16px;
+          word-break: break-all;
         }
 
         .bottom {
@@ -148,6 +149,24 @@
           }
         }
       }
+    }
+
+    .no-items {
+      margin-top: 250px;
+      text-align: center;
+
+      .title {
+        color: #FFA786;
+        font-size: 26px;
+        font-weight: bold;
+      }
+
+      .desc {
+        color: #C4C4C4;
+        font-size: 20px;
+        padding: 30px 0;
+      }
+
     }
   }
   ::-webkit-scrollbar {
