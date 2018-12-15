@@ -1,6 +1,8 @@
+$mobile: 600px;
+
 .toastr {
   position: absolute;
-  top: 200px;
+  top: 160px;
   right: 50px;
   z-index: 3;
   width: 350px;
@@ -24,5 +26,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .toastr {
+    top: 170px;
+    right: 5px;
+    height: 30px;
   }
 }

@@ -1,3 +1,5 @@
+$mobile: 600px;
+
 .modal-container {
   width: 700px;
   height: 720px;
@@ -89,6 +91,12 @@
       font-size: 20px;
     }
 
+    @media screen and (max-width: $mobile) {
+      input[formControlName=name] {
+        width: 300px;
+      }
+    }
+
     input[formControlName=name]:focus {
       border-bottom: 1px solid #FFA786;
     }
@@ -109,6 +117,12 @@
         color: #C4C4C4;
         opacity: 0.6;
         font-size: 16px;
+      }
+
+      @media screen and (max-width: $mobile) {
+        textarea[formControlName=desc] {
+          width: 300px;
+        }
       }
 
       textarea[formControlName=desc]:focus {
@@ -270,6 +284,13 @@
       border-style: none;
       cursor: pointer;
     }
+
+    @media screen and (max-width: $mobile) {
+      .save-button {
+        bottom: 50px;
+      }
+    }
+
   }
 }
 
