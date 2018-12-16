@@ -38,14 +38,16 @@ export class ModalComponent implements OnInit {
   }
 
   public ngOnInit() {
-    if (this.item.id) {
-      const form = this.cakeForm.controls;
-      this.uploadedImage = this.item.image;
-      form['name'].setValue(this.item.name);
-      form['desc'].setValue(this.item.desc);
-      form['numberOfPortions'].setValue(this.item.numberOfPortions);
-      form['cost'].setValue(this.item.cost);
-      this.countPortionCost();
+    if (this.item) {
+      if (this.item.id) {
+        const form = this.cakeForm.controls;
+        this.uploadedImage = this.item.image;
+        form['name'].setValue(this.item.name);
+        form['desc'].setValue(this.item.desc);
+        form['numberOfPortions'].setValue(this.item.numberOfPortions);
+        form['cost'].setValue(this.item.cost);
+        this.countPortionCost();
+      }
     }
   }
 

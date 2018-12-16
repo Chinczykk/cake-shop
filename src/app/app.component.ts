@@ -46,6 +46,7 @@ export class AppComponent {
   public edit(item) {
     this.itemToEdit = item;
     this.modal = true;
+    this.removeToastr();
   }
 
   public remove(item) {
