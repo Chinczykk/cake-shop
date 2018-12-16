@@ -14,7 +14,7 @@
               <img src="../assets/edit-icon.svg" (click)="edit(item)">
             </div>
             <div class="remove-icon">
-              <img src="../assets/remove.svg" (click)="remove(item)">
+              <img src="../assets/remove.svg" (click)="askRemove(item)">
             </div>
           </div>
           <div class="middle">{{ (item.desc.length > 110) ? (item.desc | slice:0:110) + '...' : item.desc }}</div>
@@ -48,3 +48,4 @@
 </div>
 <app-modal *ngIf="modal" [item]="itemToEdit" (close)="closeModal($event)"></app-modal>
 <app-toastr *ngIf="toastr" [value]="toastrValue" (remove)="removeToastr()"></app-toastr>
+<app-remove-confirmation *ngIf="removeConfirmation" (close)="closeModal($event)" (decision)="removeConfirmationDecision($event)"></app-remove-confirmation>

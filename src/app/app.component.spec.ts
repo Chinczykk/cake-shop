@@ -4,6 +4,7 @@ import { ToastrComponent } from './components/toastr/toastr.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FakeBackendService } from './fake-backend/fake-backend.service';
+import { RemoveConfirmationComponent } from './components/remove-confirmation/remove-confirmation.component';
 
 describe('AppComponent', () => {
   let fixture: any;
@@ -14,7 +15,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         ToastrComponent,
-        ModalComponent
+        ModalComponent,
+        RemoveConfirmationComponent
       ],
       imports: [
         ReactiveFormsModule

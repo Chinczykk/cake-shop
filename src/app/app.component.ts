@@ -19,6 +19,8 @@ export class AppComponent {
   public itemToEdit: any = {};
   public toastr: Boolean = false;
   public toastrValue: String = '';
+  public itemToRemove: any = {};
+  public removeConfirmation: Boolean = false;
 
   constructor(public fakeBackend: FakeBackendService) {
     this.updateItems();
@@ -26,6 +28,7 @@ export class AppComponent {
 
   public closeModal(event) {
     this.modal = false;
+    this.removeConfirmation = false;
     if (event === 'edit') {
       this.activateToastr(this.messages.edit);
     } else if (event === 'add') {
@@ -63,6 +66,20 @@ export class AppComponent {
   public removeToastr() {
     this.toastr = false;
     this.toastrValue = '';
+  }
+
+  public askRemove(item) {
+    this.itemToRemove = item;
+    this.removeConfirmation = true;
+    this.removeToastr();
+  }
+
+  public removeConfirmationDecision(decision) {
+    this.closeModal('');
+    if (decision) {
+      this.remove(this.itemToRemove);
+    }
+    this.itemToRemove = {};
   }
 
 }
