@@ -120,4 +120,48 @@ describe('AppComponent', () => {
     });
 
   });
+
+  describe('askRemove', () => {
+
+    it('should open ask remove modal', () => {
+
+      app.toastr = true;
+      app.toastrValue = '1';
+
+      app.askRemove({id: 1});
+
+      expect(app.toastr).toBeFalsy();
+      expect(app.toastrValue).toEqual('');
+      expect(app.itemToRemove).toEqual({ id: 1});
+      expect(app.removeConfirmation).toBeTruthy();
+
+    });
+  });
+
+  describe('removeConfirmationDecision', () => {
+
+    it('should not remove', () => {
+
+      app.itemToRemove = {id: 1};
+
+      app.removeConfirmationDecision(false);
+
+      expect(app.itemToRemove).toEqual({});
+      expect(app.toastr).toBeFalsy();
+
+    });
+
+    it('should remove', () => {
+
+      app.itemToRemove = {id: 1};
+
+      app.removeConfirmationDecision(true);
+
+      expect(app.itemToRemove).toEqual({});
+      expect(app.toastr).toBeTruthy();
+      expect(app.toastrValue).toEqual('USUNĄŁEŚ CIASTO!');
+
+    });
+
+  });
 });
